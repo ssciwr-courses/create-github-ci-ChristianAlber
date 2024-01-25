@@ -32,8 +32,10 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r requirements.txt
     - name: run black
-      run: |
-        black
+      uses: rickstaa/action-black@v1
+      id: action_black
+      with:
+        black_args: "."
     - name: run linter
       run: |
         flake8
